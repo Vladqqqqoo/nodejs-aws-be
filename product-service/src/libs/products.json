@@ -1,82 +1,92 @@
 [
     {
         "id": "1",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "peach",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "2",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "blue",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "3",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "black",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "4",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "red",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "5",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "dark blue",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "6",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "white",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "7",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "green",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "8",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "apple green",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "9",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "orange",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 1
     },
     {
         "id": "10",
-        "name": "love66",
+        "title": "love66",
         "description": "The best bed linens ever",
         "color": "pink",
         "fabric": "satin",
-        "price": "180"
+        "price": "180",
+        "count": 4
     }
 ]
