@@ -1,6 +1,8 @@
 import type { AWS } from '@serverless/typescript';
 
 import hello from '@functions/hello';
+import getProductList from '@functions/getProductList';
+import getProductById from '@functions/getProductById';
 
 const serverlessConfiguration: AWS = {
   service: 'product-service',
@@ -8,8 +10,8 @@ const serverlessConfiguration: AWS = {
   custom: {
     webpack: {
       webpackConfig: './webpack.config.js',
-      includeModules: true,
-    },
+      includeModules: true
+    }
   },
   plugins: ['serverless-webpack'],
   provider: {
@@ -17,15 +19,15 @@ const serverlessConfiguration: AWS = {
     runtime: 'nodejs14.x',
     apiGateway: {
       minimumCompressionSize: 1024,
-      shouldStartNameWithService: true,
+      shouldStartNameWithService: true
     },
     environment: {
-      AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
+      AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
     },
-    lambdaHashingVersion: '20201221',
+    lambdaHashingVersion: '20201221'
   },
   // import the function via paths
-  functions: { hello },
+  functions: { hello, getProductList, getProductById }
 };
 
 module.exports = serverlessConfiguration;
