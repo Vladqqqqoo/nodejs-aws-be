@@ -11,11 +11,22 @@ import mockedProductList from '@libs/products.json';
 const getProductById: ValidatedEventAPIGatewayProxyEvent<typeof schema> =
   async (event) => {
     const { productId } = event.pathParameters;
+
+    if (!productId) {
+      return formatJSONResponse(400, {
+        message: 'Please, provide correct product id'
+      });
+    }
+
     const product = mockedProductList.find(
       (product) => product.id === productId
     );
 
-    return formatJSONResponse({
+    if (!product) {
+      return formatJSONResponse(404, { message: 'Product not found' });
+    }
+
+    return formatJSONResponse(200, {
       ...product
     });
   };

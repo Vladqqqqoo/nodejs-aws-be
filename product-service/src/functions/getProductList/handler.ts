@@ -10,7 +10,7 @@ import mockedProductList from '@libs/products.json';
 
 const getProductList: ValidatedEventAPIGatewayProxyEvent<typeof schema> =
   async () => {
-    return formatJSONResponse(mockedProductList);
+    return formatJSONResponse(200, mockedProductList);
   };
 
 export const main = middyfy(getProductList);
