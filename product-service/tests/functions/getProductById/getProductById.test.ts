@@ -18,7 +18,7 @@ describe('getProductById test', () => {
   test('should return 404 status and correct product', async () => {
     const correctResponse = await getProductById({
       pathParameters: {
-        productId: '123'
+        productId: 'aa007c0b-1589-415e-87e4-6f75db772222'
       }
     });
     expect(correctResponse.statusCode).toBe(404);

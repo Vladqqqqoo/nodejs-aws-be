@@ -3,7 +3,7 @@
     "Content-Type": "application/json"
   },
   "pathParameters": {
-    "productId": "10"
+    "productId": "aa007c0b-1589-415e-87e4-6f75db772502"
   },
   "body": "{\"name\": \"Frederic\"}"
 }
