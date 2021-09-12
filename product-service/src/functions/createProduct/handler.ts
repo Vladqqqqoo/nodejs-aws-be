@@ -17,14 +17,17 @@ const dbOptions = {
   connectionTimeoutMillis: 5000
 } as unknown as ClientConfig;
 
-export const createProduct = async (event) => {
+export const createProduct = async (event, context) => {
+  console.log(event, context);
   const client = new Client(dbOptions);
 
   try {
+    console.log('Connecting to DB');
     await client.connect();
     await client.query('BEGIN');
     const productData = event.body;
 
+    console.log('Inserting a product');
     if (!productData) {
       return formatJSONResponse(400, {
         message: 'Please, provide correct product payload'
@@ -54,8 +57,10 @@ export const createProduct = async (event) => {
 
     await client.query('COMMIT');
 
+    console.log('Item was successfully added to DB: ', { id, ...productData });
     return formatJSONResponse(200, { id, ...productData });
   } catch (err) {
+    console.log(err);
     await client.query('ROLLBACK');
     return formatJSONResponse(500, { message: err.message });
   } finally {

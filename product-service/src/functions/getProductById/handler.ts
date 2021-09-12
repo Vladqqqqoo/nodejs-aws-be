@@ -17,13 +17,16 @@ const dbOptions = {
   connectionTimeoutMillis: 5000
 } as unknown as ClientConfig;
 
-export const getProductById = async (event) => {
+export const getProductById = async (event, context) => {
+  console.log(event, context);
   const client = new Client(dbOptions);
 
   try {
+    console.log('Connecting to DB');
     await client.connect();
     const { productId } = event.pathParameters;
 
+    console.log('Getting a product by id');
     if (!productId) {
       return formatJSONResponse(400, {
         message: 'Please, provide correct product id'
@@ -41,10 +44,10 @@ export const getProductById = async (event) => {
       return formatJSONResponse(404, { message: 'Product not found' });
     }
 
-    console.log(product);
-
+    console.log('Product from DB: ', product);
     return formatJSONResponse(200, product);
   } catch (err) {
+    console.log(err);
     return formatJSONResponse(500, { message: err.message });
   } finally {
     client.end();
