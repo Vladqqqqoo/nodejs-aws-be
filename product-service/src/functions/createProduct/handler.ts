@@ -3,6 +3,7 @@ import { Client, ClientConfig } from 'pg';
 import { formatJSONResponse } from '@libs/apiGateway';
 import { middyfy } from '@libs/lambda';
 import { v4 as uuidv4 } from 'uuid';
+import { validateProductPayload } from './validation';
 
 const { PG_HOST, PG_PORT, PG_DATABASE, PG_USERNAME, PG_PASSWORD } = process.env;
 const dbOptions = {
@@ -28,9 +29,13 @@ export const createProduct = async (event, context) => {
     const productData = event.body;
 
     console.log('Inserting a product');
-    if (!productData) {
+
+    const hasError = validateProductPayload(productData);
+
+    if (hasError instanceof Error) {
+      console.log('Incorrect product payload');
       return formatJSONResponse(400, {
-        message: 'Please, provide correct product payload'
+        message: hasError.message
       });
     }
 
