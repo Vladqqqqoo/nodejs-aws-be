@@ -22,6 +22,7 @@ export const createProduct = async (event) => {
 
   try {
     await client.connect();
+    await client.query('BEGIN');
     const productData = event.body;
 
     if (!productData) {
@@ -33,8 +34,6 @@ export const createProduct = async (event) => {
     const { title, description, color, fabric, price, count } = productData;
 
     const id = uuidv4();
-
-    console.log(productData);
 
     await client.query(`
     insert into products (id, title, description, color, fabric, price)
@@ -53,8 +52,11 @@ export const createProduct = async (event) => {
     ('${id}', ${+count})
     `);
 
+    await client.query('COMMIT');
+
     return formatJSONResponse(200, { id, ...productData });
   } catch (err) {
+    await client.query('ROLLBACK');
     return formatJSONResponse(500, { message: err.message });
   } finally {
     client.end();
