@@ -1,0 +1,7 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+
+  "body": "{\"title\": \"Lady killer\", \"description\": \"The best bed linens ever\", \"color\": \"green\", \"fabric\": \"satin\", \"price\": 180, \"count\": 1}"
+}

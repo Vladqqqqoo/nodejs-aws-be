@@ -5,6 +5,7 @@ dotenv.config();
 
 import getProductList from '@functions/getProductList';
 import getProductById from '@functions/getProductById';
+import createProduct from '@functions/createProduct';
 
 const { PG_HOST, PG_PORT, PG_DATABASE, PG_USERNAME, PG_PASSWORD } = process.env;
 
@@ -35,7 +36,7 @@ const serverlessConfiguration: AWS = {
     },
     lambdaHashingVersion: '20201221'
   },
-  functions: { getProductList, getProductById }
+  functions: { getProductList, getProductById, createProduct }
 };
 
 module.exports = serverlessConfiguration;
