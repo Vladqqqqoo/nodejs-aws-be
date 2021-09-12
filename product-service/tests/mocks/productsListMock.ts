@@ -1,7 +1,7 @@
 export const productsListMock = null;
 export const event = {
   pathParameters: {
-    productId: '1'
+    productId: 'aa007c0b-1589-415e-87e4-6f75db772502'
   }
 };
 export const oneProd = {

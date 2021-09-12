@@ -1,4 +1,5 @@
-import schema from './schema';
+//lambda Serverless configuration
+
 import { handlerPath } from '@libs/handlerResolver';
 
 export default {
@@ -7,12 +8,8 @@ export default {
     {
       http: {
         method: 'post',
-        path: 'hello',
-        request: {
-          schema: {
-            'application/json': schema
-          }
-        }
+        path: 'products',
+        cors: true
       }
     }
   ]
